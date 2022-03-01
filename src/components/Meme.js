@@ -1,14 +1,10 @@
 import React from "react"
 import memesData from "../memesData.js"
+import { saveAs } from 'file-saver'
 
 export default function Meme() {
-    /**
-     * Challenge: 
-     * 1. Set up the text inputs to save to
-     *    the `topText` and `bottomText` state variables.
-     * 2. Replace the hard-coded text on the image with
-     *    the text being saved to state.
-     */
+    
+    
     
     const [meme, setMeme] = React.useState({
         topText: "",
@@ -29,6 +25,17 @@ export default function Meme() {
         
     }
     
+    const saveImage = meme.randomImage
+    const fileName = getFileName(saveImage);
+
+    const downloadImage = () => {
+      saveAs(saveImage, fileName) // Put your image url here.
+    }
+
+    function getFileName(str){
+        return str.substring(str.lastIndexOf('/')+1);
+    }
+
 
     function handleChange(event){
         const {name,value} = event.target
@@ -70,6 +77,10 @@ export default function Meme() {
                 <h2 className="meme--text top">{meme.topText}</h2>
                 <h2 className="meme--text bottom">{meme.bottomText}</h2>
             </div>
+
+            <div className="dbtn">
+                <button className="download" onClick={downloadImage}>Download Image</button>
+                </div>
         </main>
     )
 }

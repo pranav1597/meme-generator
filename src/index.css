@@ -102,6 +102,25 @@ main {
   top: 0;
 }
 
+.dbtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.download{
+  padding: 10px 15px;
+  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+  color: white;
+  border: none;
+  font-weight: 700;
+}
+
+.download:hover{
+  cursor: pointer;
+}
+
 
 @media (min-width: 600px){
 
